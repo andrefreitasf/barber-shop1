@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Aliadunel</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .checkout-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .checkout-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+
+        .booking-details {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+        }
+
+        .booking-details h3 {
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 500;
+            color: #666;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .checkout-form {
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+        .service-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-option {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .service-option:hover {
+            border-color: #ffd700;
+        }
+
+        .service-option.selected {
+            border-color: #ffd700;
+            background: #fff9e6;
+        }
+
+        .service-option h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        .service-price {
+            color: #ffd700;
+            font-weight: 600;
+        }
+
+        .total-section {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-top: 2rem;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .total-row.final {
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-top: 2px solid #ddd;
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+
+        .confirm-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #ffd700;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 2rem;
+        }
+
+        .confirm-button:hover {
+            background: #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Aliadunel</h1>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="marcacoes.html">Marcações</a></li>
+                <li><a href="index.html#precos">Preços</a></li>
+                <li><a href="index.html#produtos">Produtos</a></li>
+                <li><a href="index.html#cortes">Cortes</a></li>
+                <li><a href="index.html#sobre">Sobre Nós</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="checkout-container">
+        <div class="checkout-card">
+            <div class="booking-details">
+                <h3>Detalhes da Marcação</h3>
+                <div class="detail-item">
+                    <span class="detail-label">Data:</span>
+                    <span class="detail-value" id="checkoutDate">-</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Horário:</span>
+                    <span class="detail-value" id="checkoutTime">-</span>
+                </div>
+            </div>
+
+            <div class="checkout-form">
+                <h3>Selecione o Serviço</h3>
+                <div class="service-options">
+                    <div class="service-option" data-price="14.00">
+                        <h4>Corte de Cabelo</h4>
+                        <p>Corte moderno e personalizado</p>
+                        <p class="service-price">€ 14,00</p>
+                    </div>
+                    <div class="service-option" data-price="7.00">
+                        <h4>Barba</h4>
+                        <p>Modelagem e hidratação</p>
+                        <p class="service-price">€ 7,00</p>
+                    </div>
+                    <div class="service-option" data-price="19.99">
+                        <h4>Combo</h4>
+                        <p>Corte + Barba</p>
+                        <p class="service-price">€ 19,99</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Observações (opcional)</label>
+                    <input type="text" id="notes" placeholder="Ex: Corte específico, alergias, etc.">
+                </div>
+
+                <div class="total-section">
+                    <div class="total-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">€ 0,00</span>
+                    </div>
+                    <div class="total-row final">
+                        <span>Total:</span>
+                        <span id="total">€ 0,00</span>
+                    </div>
+                </div>
+
+                <button class="confirm-button" id="confirmButton">Confirmar Reserva</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Recuperar dados da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const date = urlParams.get('date');
+        const time = urlParams.get('time');
+
+        // Preencher detalhes da marcação
+        document.getElementById('checkoutDate').textContent = date || '-';
+        document.getElementById('checkoutTime').textContent = time || '-';
+
+        // Seleção de serviço
+        const serviceOptions = document.querySelectorAll('.service-option');
+        let selectedService = null;
+
+        serviceOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                serviceOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                selectedService = option;
+                updateTotal();
+            });
+        });
+
+        // Atualizar total
+        function updateTotal() {
+            const subtotalElement = document.getElementById('subtotal');
+            const totalElement = document.getElementById('total');
+            
+            if (selectedService) {
+                const price = parseFloat(selectedService.dataset.price);
+                subtotalElement.textContent = `€ ${price.toFixed(2)}`;
+                totalElement.textContent = `€ ${price.toFixed(2)}`;
+            } else {
+                subtotalElement.textContent = '€ 0,00';
+                totalElement.textContent = '€ 0,00';
+            }
+        }
+
+        // Validação do formulário
+        const form = document.querySelector('.checkout-form');
+        const confirmButton = document.getElementById('confirmButton');
+
+        form.addEventListener('input', () => {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const isValid = name && email && phone && selectedService;
+            
+            confirmButton.disabled = !isValid;
+        });
+
+        // Confirmação da reserva
+        confirmButton.addEventListener('click', () => {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const notes = document.getElementById('notes').value;
+            const service = selectedService.querySelector('h4').textContent;
+            const price = selectedService.dataset.price;
+
+            const bookingDetails = {
+                date,
+                time,
+                name,
+                email,
+                phone,
+                notes,
+                service,
+                price
+            };
+
+            // Aqui você pode adicionar a lógica para enviar os dados para um servidor
+            console.log('Detalhes da reserva:', bookingDetails);
+            
+            alert('Reserva confirmada com sucesso! Entraremos em contato para confirmar.');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html> 

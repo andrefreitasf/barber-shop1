@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barber Shop - Estilo e Tradição</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav>
+        <div class="logo">
+          <h1>Aliadunel</h1>
+        </div>
+        <div class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">Início</a></li>
+          <li><a href="marcacoes.html">Marcações</a></li>
+          <li><a href="#precos">Preços</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#cortes">Cortes</a></li>
+          <li><a href="#sobre">Sobre Nós</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Estilo e Tradição</h1>
+        <p>A melhor experiência em barbearia da cidade</p>
+        <a href="#marcacoes" class="btn">Agende Agora</a>
+      </div>
+    </section>
+
+    <!-- Marcações Section -->
+    <section id="marcacoes" class="section">
+      <h2>Marque seu Horário</h2>
+      <div class="booking-form">
+        <form id="bookingForm">
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefone</label>
+            <input type="tel" id="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="date">Data</label>
+            <input type="date" id="date" required>
+          </div>
+          <div class="form-group">
+            <label for="time">Horário</label>
+            <input type="time" id="time" required>
+          </div>
+          <button type="submit" class="btn">Confirmar Marcação</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Preços Section -->
+    <section id="precos" class="section">
+      <h2>Nossos Preços</h2>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Corte de Cabelo</h3>
+          <p class="price">€ 14,00</p>
+          <ul>
+            <li>Corte moderno</li>
+            <li>Estilo personalizado</li>
+            <li>Duração: 30min</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <h3>Barba</h3>
+          <p class="price">€ 7,00</p>
+          <ul>
+            <li>Modelagem completa</li>
+            <li>Hidratação</li>
+            <li>Duração: 20min</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <h3>Combo</h3>
+          <p class="price">€ 19,99</p>
+          <ul>
+            <li>Corte + Barba</li>
+            <li>Hidratação</li>
+            <li>Duração: 50min</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Produtos Section -->
+    <section id="produtos" class="section">
+      <h2>Nossos Produtos</h2>
+      <div class="products-grid">
+        <div class="product-card">
+          <img src="assets/pomada.jpg" alt="Pomada">
+          <h3>Pomada Modeladora</h3>
+          <p>€ 22,50</p>
+          <button class="btn">Comprar</button>
+        </div>
+        <div class="product-card">
+          <img src="assets/shampoo.jpg" alt="Shampoo">
+          <h3>Shampoo Premium</h3>
+          <p>€ 17,50</p>
+          <button class="btn">Comprar</button>
+        </div>
+        <div class="product-card">
+          <img src="assets/oleo.jpg" alt="Óleo">
+          <h3>Óleo para Barba</h3>
+          <p>€ 20,00</p>
+          <button class="btn">Comprar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cortes Section -->
+    <section id="cortes" class="section">
+      <h2>Nossos Cortes</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="assets/corte1.jpg" alt="Corte 1">
+          <p>Undercut</p>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/corte2.jpg" alt="Corte 2">
+          <p>Fade</p>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/corte3.jpg" alt="Corte 3">
+          <p>Pompadour</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="section">
+      <h2>Sobre Nós</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Nossa barbearia foi fundada em 2010 com o objetivo de oferecer serviços de qualidade em um ambiente acolhedor e tradicional.</p>
+          <p>Nossa equipe é formada por profissionais experientes e apaixonados pelo que fazem.</p>
+        </div>
+        <div class="team-grid">
+          <div class="team-member">
+            <img src="assets/barbeiro1.jpg" alt="Barbeiro 1">
+            <h3>João Silva</h3>
+            <p>Barbeiro Chefe</p>
+          </div>
+          <div class="team-member">
+            <img src="assets/barbeiro2.jpg" alt="Barbeiro 2">
+            <h3>Pedro Santos</h3>
+            <p>Barbeiro</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contato</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Rua Costa Cabral, 4, 4000-390 Marquês</p>
+          <p><i class="fas fa-phone"></i> (11) 9999-9999</p>
+          <p><i class="fas fa-envelope"></i> contato@aliadunel.com</p>
+        </div>
+        <div class="footer-section">
+          <h3>Horário</h3>
+          <p>Segunda a Sexta: 9h - 19h</p>
+          <p>Sábado: 9h - 15h</p>
+          <p>Domingo: Fechado</p>
+        </div>
+        <div class="footer-section">
+          <h3>Redes Sociais</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Aliadunel. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html> 
